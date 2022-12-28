@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import category, Meal
+from .models import Category, Menu
 from django.utils.html import format_html
 
 # Register your models here.
@@ -15,9 +15,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'thumbnail', 'name')
     list_display_links = ('name', 'thumbnail')
-    search_fields = ('name')
-    
-class MealAdmin(admin.ModelAdmin):
+
+
+class MenuAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
     def thumbnail(self, object):
@@ -30,8 +30,8 @@ class MealAdmin(admin.ModelAdmin):
     list_display = ('id', 'thumbnail', 'name',
                     'price', 'preparation_time')
     list_display_links = ('name', 'thumbnail')
-    search_fields = ('name')
+    search_fields = ('name', 'description')
 
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Meal, MealAdmin)
+admin.site.register(Menu, MenuAdmin)
