@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://snackycafe.up.railway.app']
 
 # Application definition
 
