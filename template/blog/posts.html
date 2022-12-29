@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock title %}
+<p></p>
+{% block content %} {% load humanize %} {% load static %}
+<!-- Page Header Start -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Food Blog</h2>
+      </div>
+      <div class="col-12">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'posts' %}">Blog</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Blog Start -->
+<div class="blog">
+  <div class="container">
+    <div class="section-header text-center">
+      <p>Food Blog</p>
+      <h2>Latest From Food Blog</h2>
+    </div>
+    <div class="row">
+      {% for post in posts %}
+      <div class="col-md-6">
+        <div class="blog-item">
+          <div class="blog-img">
+            <img src="{{post.image.url}}" alt="Blog" / style=" min-width: 360px;
+            max-width: 360px; min-height: 300px; max-height: 300px; ">
+          </div>
+          <div class="blog-content">
+            <h2 class="blog-title">{{post.title}}</h2>
+            <div class="blog-meta">
+              <p><i class="far fa-user"></i>{{post.author}}</p>
+              <p><i class="far fa-list-alt"></i>{{post.category}}</p>
+              <p><i class="far fa-calendar-alt"></i>{{post.upload_time}}</p>
+              <p><i class="far fa-comments"></i>10</p>
+            </div>
+            <div class="blog-text">
+              <p>{{post.body | safe | truncatewords:20}}</p>
+              <a class="btn custom-btn" href="{% url 'post_detail' post.id %}"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col-12">
+        {% if posts.has_other_pages %}
+        <ul class="pagination justify-content-center">
+          {% if posts.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{posts.previous_page_number}}"
+              >Previous</a
+            >
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          {% endif %} {% for i in posts.paginator.page_range %}
+          <p></p>
+          {% if posts.number == i %}
+          <li class="page-item">
+            <a class="page-link" href="#">{{i}}</a>
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{i}}">{{i}}</a>
+          </li>
+          {% endif %} {% endfor %} {% if posts.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{posts.next_page_number}}"
+              >Next</a
+            >
+          </li>
+          {% else %}
+          <li class="page-item disabler">
+            <a class="page-link" href="#">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Blog End -->
+{% endblock content %}
