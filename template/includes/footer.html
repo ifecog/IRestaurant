@@ -8,16 +8,27 @@
             <div class="footer-contact">
               <h2>Our Address</h2>
               <p>
-                <i class="fa fa-map-marker-alt"></i>123 Street, New York, USA
+                <i class="fa fa-map-marker-alt"></i>123 Street, Newark, New
+                Jersey, USA
               </p>
-              <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-              <p><i class="fa fa-envelope"></i>info@example.com</p>
+              <p><i class="fa fa-phone-alt"></i>+1 567 345 6780</p>
+              <p><i class="fa fa-envelope"></i>info@snackycafe.org</p>
               <div class="footer-social">
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-youtube"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.twitter.com"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="https://www.facebook.com"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="https://www.youtube.com"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a href="https://www.instagram.com"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="https://www.linkedin.com"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -26,15 +37,12 @@
       <div class="col-lg-5">
         <div class="footer-newsletter">
           <h2>Newsletter</h2>
-          <p>
-            Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec
-            non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed
-            lacus neque id eros.
-          </p>
-          <div class="form">
-            <input class="form-control" placeholder="Email goes here" />
-            <button class="btn custom-btn">Submit</button>
-          </div>
+          <p>Kindly subscrube to our newsletter</p>
+          <form action="" method="post">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email" required="" />
+            <input type="submit" value="Subscribe" />
+          </form>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ from menu.models import Category
 from ckeditor.fields import RichTextField
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -17,6 +18,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_url(self):
+        return reverse('post_detail', args=[self.pk])
 
 
 class Comment(models.Model):
