@@ -30,10 +30,8 @@
           </div>
           <div class="about-text">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-              Aliquam metus tortor, auctor id gravida condimentum, viverra quis
-              sem.
+              Welcome to the bookig page of SnackyCafe where we offer the best
+              menu. Kindly make your reservations. Cheers!
             </p>
           </div>
         </div>
@@ -41,114 +39,7 @@
       <div class="col-lg-5">
         <div class="booking-form">
           <form action="{% url 'booking' %}" method="POST">
-            {% csrf_token %} {% comment %}
-            <div class="control-group">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Name"
-                  required="required"
-                />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="far fa-user"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="input-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  required="required"
-                />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="far fa-envelope"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Mobile"
-                  required="required"
-                />
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="fa fa-mobile-alt"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <div
-                class="input-group date"
-                id="date"
-                data-target-input="nearest"
-              >
-                <input
-                  type="text"
-                  class="form-control datetimepicker-input"
-                  placeholder="Date"
-                  data-target="#date"
-                  data-toggle="datetimepicker"
-                />
-                <div
-                  class="input-group-append"
-                  data-target="#date"
-                  data-toggle="datetimepicker"
-                >
-                  <div class="input-group-text">
-                    <i class="far fa-calendar-alt"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <div
-                class="input-group time"
-                id="time"
-                data-target-input="nearest"
-              >
-                <input
-                  type="text"
-                  class="form-control datetimepicker-input"
-                  placeholder="Time"
-                  data-target="#time"
-                  data-toggle="datetimepicker"
-                />
-                <div
-                  class="input-group-append"
-                  data-target="#time"
-                  data-toggle="datetimepicker"
-                >
-                  <div class="input-group-text">
-                    <i class="far fa-clock"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="input-group">
-                <select class="custom-select form-control">
-                  <option selected>No of Persons</option>
-                  <option value="1">1</option>
-                </select>
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="fa fa-chevron-down"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endcomment %} {{booking_form.as_p}}
+            {% csrf_token %} {{booking_form.as_p}}
             <div>
               <button class="btn custom-btn" type="submit">Book Now</button>
             </div>
