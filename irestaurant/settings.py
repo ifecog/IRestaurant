@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'meals',
     'menu',
     'blog',
+    'about',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +133,19 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'irestaurant/static'), ]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    50: 'critical',
+}
+
+# smtp configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'darasimisamson90@gmail.com'
+EMAIL_HOST_PASSWORD = 'wuyjweuunktqxzdq'
+EMAIL_USE_TLS = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
