@@ -37,29 +37,18 @@
       </div>
       <div class="col-lg-6">
         <div class="about-content">
+          {% for about in abouts %}
           <div class="section-header">
-            <p>About Us</p>
+            <p>{{about.name}} Us</p>
             <h2>Cooking Since 1990</h2>
           </div>
           <div class="about-text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-              Aliquam metus tortor, auctor id gravida condimentum, viverra quis
-              sem.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-              Aliquam metus tortor, auctor id gravida condimentum, viverra quis
-              sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean
-              consectetur convallis porttitor. Aliquam interdum at lacus non
-              blandit.
-            </p>
+            <p>{{about.body | safe}}</p>
             <a class="btn custom-btn" href="{% url 'booking' %}"
               >Book A Table</a
             >
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -108,77 +97,29 @@
   <div class="container">
     <div class="section-header text-center">
       <p>Our Team</p>
-      <h2>Our Master Chef</h2>
+      <h2>Our Master Chefs</h2>
     </div>
     <div class="row">
+      {% for chef in chefs %}
       <div class="col-lg-3 col-md-6">
         <div class="team-item">
           <div class="team-img">
-            <img src="img/team-1.jpg" alt="Image" />
+            <img src="{{chef.image.url}}" alt="Image" />
             <div class="team-social">
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href="{{chef.twitter_link}}"><i class="fab fa-twitter"></i></a>
+              <a href="{{chef.facebook_link}}"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="{chef.google_link}"><i class="fab fa-google"></i></a>
             </div>
           </div>
           <div class="team-text">
-            <h2>Adam Phillips</h2>
-            <p>CEO, Co Founder</p>
+            <h2>{{chef.name}}</h2>
+            <p>{{chef.role}}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="team-item">
-          <div class="team-img">
-            <img src="img/team-2.jpg" alt="Image" />
-            <div class="team-social">
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-          <div class="team-text">
-            <h2>Dylan Adams</h2>
-            <p>Master Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="team-item">
-          <div class="team-img">
-            <img src="img/team-3.jpg" alt="Image" />
-            <div class="team-social">
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-          <div class="team-text">
-            <h2>Jhon Doe</h2>
-            <p>Master Chef</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="team-item">
-          <div class="team-img">
-            <img src="img/team-4.jpg" alt="Image" />
-            <div class="team-social">
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-          <div class="team-text">
-            <h2>Josh Dunn</h2>
-            <p>Master Chef</p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
